@@ -1,8 +1,6 @@
 # Use an official Python runtime as a parent image
 FROM python:3.10
 
-EXPOSE 8001
-
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
 
@@ -26,5 +24,3 @@ RUN pip install -r requirements/production.txt
 
 WORKDIR /app
 COPY . /app
-
-CMD ["gunicorn", "--bind", "0.0.0.0:8001", "image_processing.wsgi"]
