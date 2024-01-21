@@ -1,4 +1,4 @@
-# Image Processing Assignment
+# Image Processing
 
 ## Getting Started
 
