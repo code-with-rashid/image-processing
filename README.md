@@ -4,7 +4,7 @@
 
 ### Clone the Repository
 ```bash
-$ git clone https://github.com/rashiidmahmood/image_processing_assignment.git
+$ https://github.com/code-with-rashid/image-processing.git
 ```
 
 ### Docker setup
