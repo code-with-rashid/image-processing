@@ -1,4 +1,4 @@
-docker_file ?= -f docker-compose.yml
+docker_file ?= -f docker-compose.yml -f docker-compose.local.yml
 execute_flags ?=
 
 makemigrations:

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  web:
+    image: backend_image:latest
+    restart: always
+    build:
+      dockerfile: ./Dockerfile.production
+    command: gunicorn image_processing.wsgi:application -w 4 -b unix:/app/gunicorn.sock
+    expose:
+      - "8001"
+    ports:
+      - 8001:8001
+    volumes:
+      - static_volume:/app/static
+      - media_volume:/app/media
+    environment:
+      - DJANGO_SETTINGS_MODULE=image_processing.settings.production
+      - DOCKER_ENV=1
+    networks:
+      - backend_network
+
+  db:
+    networks:
+      - backend_network
+
+networks:
+  backend_network:
+
+volumes:
+  static_volume:
+  media_volume:

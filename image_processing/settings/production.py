@@ -1,24 +1,12 @@
-import os
-
 from .base import *
 
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-# Override settings for local development
-if 'DOCKER_ENV' not in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': ROOT_DIR / 'db.sqlite3',
-        }
-    }
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/

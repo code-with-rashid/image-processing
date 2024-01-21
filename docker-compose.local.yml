@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  web:
+    volumes:
+      - .:/app/
+      - app_static:/app/root/
+      - app_static:/app/uploads/
+    environment:
+      - DOCKER_ENV=1
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+
+  db:
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
+  app_static:
+  app_media:

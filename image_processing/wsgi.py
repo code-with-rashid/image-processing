@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
 
 import os
 
+from decouple import config
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'image_processing.settings.development')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', config("DJANGO_SETTINGS_MODULE"))
 
 application = get_wsgi_application()

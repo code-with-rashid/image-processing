@@ -1,0 +1,30 @@
+# Use an official Python runtime as a parent image
+FROM python:3.10
+
+EXPOSE 8001
+
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED=1
+
+ENV DJANGO_SETTINGS_MODULE="image_processing.settings.production"
+
+
+RUN apt-get update
+# install psycopg2 dependencies
+RUN apt-get install -y apt-utils python3-psycopg2 python3-dev libpq-dev
+
+# install dependencies
+RUN pip install --upgrade pip
+
+# Install pip requirements
+COPY requirements/base.txt ./requirements/base.txt
+COPY requirements/production.txt ./requirements/production.txt
+RUN pip install -r requirements/production.txt
+
+WORKDIR /app
+COPY . /app
+
+CMD ["gunicorn", "--bind", "0.0.0.0:8001", "image_processing.wsgi"]
