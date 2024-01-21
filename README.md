@@ -18,7 +18,7 @@ http://127.0.0.1:8000/api/schema/swagger/
 ## Development Steps
 #### Clone the Project:
 ```bash
-$ git clone https://github.com/rashiidmahmood/image_processing_assignment.git
+$ git clone https://github.com/code-with-rashid/image-processing.git
 ```
 #### Install Dependencies:
 Ensure that python3 and pip3 are installed on your system. Inside the project's root directory, install requirements (consider using a virtual environment):
